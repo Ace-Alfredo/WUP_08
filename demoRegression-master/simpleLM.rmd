@@ -31,12 +31,12 @@ summary.lm(simp)
 ## Compare all models that predict LENGTH other than NECK. Then order them from worst to best by its value of Adjusted-Rsquared (bigger is better), or by RSE (residual standard error) where smaller is better. 
   
 ```{r}
-simp <- lm(LENGTH~NECK,data=bears)
+ourneck <- lm(LENGTH~NECK,data=bears)
 plot(LENGTH~NECK,data=bears)
-abline(simp)
-summary.lm(simp)
+abline(ourneck)
+summary.lm(ourneck)
 ```
-  
+The standard error for neck is 5.38. 
   
 ```{r}
 Ourweight <- lm(LENGTH~WEIGHT,data=bears)
@@ -44,7 +44,56 @@ plot(LENGTH~WEIGHT,data=bears)
 abline(Ourweight)
 summary.lm(Ourweight)
 ```  
+The standard  error for weight is 5.43.
   
-  The order would be neck, followed by weight
+  
+  
+```{r}
+Ourchest <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(Ourchest)
+summary.lm(Ourchest)
+```    
+The standard error for chest is 4.94.
+
+  
+```{r}
+ourheadwth <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(ourheadwth)
+summary.lm(ourheadwth)
+```  
+The standard error is 7.32 for HEADWTH.
+  
+```{r}
+ourheadlen <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(ourheadlen)
+summary.lm(ourheadlen)
+```    
+The standard error for headlen would be 4.24
+
+
+```{r}
+ourage <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(ourage)
+summary.lm(ourage)
+```  
+he standard error for Age would be 7.51.
+  
+  The order would be from worst to best is age, Headwth, then weight, followed by neck, then chest, and lastly HeadLen  
+
+Age:      RSE: 7.511   ars: 0.5073
+
+Headwth: RSE: 7.32     ars: 0.5321
+
+Weight:  RSE: 5.432,   ars: 0.7423
+
+Neck:    RSE: 5.376    ars: 0.7476
+
+Chest:  RSE: 4.939   ars:0.7869
+
+Headlen: RSE: 4.235    ars:0.8434
   
    
